@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead tr {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+.table tbody tr td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.highrow {
+    font-weight: bold;
+}
+
+.emptyrow {
+    border-top: none;
+}
+
+.iconbig {
+    font-size: 2rem;
+    color: #007bff;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #007bff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.card-body input[type="radio"] {
+    margin-right: 10px;
+}
+
+.card-body h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+}

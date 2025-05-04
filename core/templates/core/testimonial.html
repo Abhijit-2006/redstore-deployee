@@ -1,0 +1,95 @@
+{% load static %}
+<section class="testimonial">
+    <div class="small-container">
+        <h2 class="section-title">What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <i class="fa fa-quote-left quote-icon"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                </div>
+                <div class="user-info">
+                    <img src="{% static 'core/images/user-1.png' %}" alt="User 1">
+                    <h4>Sean Parker</h4>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa fa-quote-left quote-icon"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                </div>
+                <div class="user-info">
+                    <img src="{% static 'core/images/user-2.png' %}" alt="User 2">
+                    <h4>Mike Smith</h4>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <i class="fa fa-quote-left quote-icon"></i>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div class="rating">
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>
+                </div>
+                <div class="user-info">
+                    <img src="{% static 'core/images/user-3.png' %}" alt="User 3">
+                    <h4>Mabel Joe</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    
+    .testimonial-card {
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 1s forwards;
+    }
+
+    .testimonial-card:nth-child(1) {
+        animation-delay: 0.3s;
+    }
+
+    .testimonial-card:nth-child(2) {
+        animation-delay: 0.6s;
+    }
+
+    .testimonial-card:nth-child(3) {
+        animation-delay: 0.9s;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .testimonial-grid {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .testimonial-card {
+        width: 30%;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .rating i {
+        color: #ffac33;
+    }
+</style>

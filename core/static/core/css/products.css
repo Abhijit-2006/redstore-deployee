@@ -1,0 +1,123 @@
+/* === Container === */
+.small-container {
+    max-width: 1080px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  /* === Row Flex === */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  
+  /* === Row Header & Filter === */
+  .row-2 {
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .row-2 h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .row-2 select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+  
+  /* === Product Box === */
+  .col-3 {
+    flex-basis: 23%;
+    padding: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .col-3 img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .col-3 h6 {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #333;
+  }
+  
+  .col-3 p {
+    font-weight: 600;
+    color: #ff523b;
+    font-size: 15px;
+  }
+  
+  /* === Hover Effect === */
+  .col-3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* === Rating Stars === */
+  .ratting {
+    color: #ff9529;
+    margin-bottom: 5px;
+  }
+  
+  /* === Pagination Buttons === */
+  .page-btn {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .page-btn span {
+    display: inline-block;
+    border: 1px solid #ff523b;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #ff523b;
+    transition: all 0.3s ease;
+  }
+  
+  .page-btn span:hover,
+  .page-btn span.active {
+    background-color: #ff523b;
+    color: white;
+  }
+  
+  /* === Responsive Layout === */
+  @media (max-width: 768px) {
+    .col-3 {
+      flex-basis: 48%;
+    }
+  
+    .row-2 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .row-2 select {
+      margin-top: 10px;
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .col-3 {
+      flex-basis: 100%;
+    }
+  }
+  

@@ -1,0 +1,388 @@
+{% extends "core/base.html" %}
+{% block content %}
+{% block css %}
+<style>
+    body {
+        background: #ddd3;
+        font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        vertical-align: bottom;
+    }
+
+    .order {
+        margin-top: 100px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+    }
+
+    .card {
+        margin: auto;
+        width: 38%;
+        max-width: 600px;
+        min-width: 300px;
+        padding: 4vh 0;
+        box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-top: 3px solid rgb(252, 103, 49);
+        border-bottom: 3px solid rgb(252, 103, 49);
+        border-left: none;
+        border-right: none;
+        background: white;
+        border-radius: 0;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .card:hover {
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+        .card {
+            width: 90%;
+            padding: 3vh 0;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .card {
+            width: 95%;
+            padding: 2vh 0;
+        }
+    }
+
+    .title {
+        color: rgb(252, 103, 49);
+        font-weight: 600;
+        margin-bottom: 2vh;
+        padding: 0 8%;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+    }
+
+    .title::after {
+        content: '';
+        position: absolute;
+        bottom: -8px;
+        left: 8%;
+        width: 84%;
+        height: 1px;
+        background: linear-gradient(to right, transparent, rgb(252, 103, 49), transparent);
+    }
+
+    #details {
+        font-weight: 400;
+        color: #555;
+    }
+
+    .info {
+        padding: 5% 8%;
+    }
+
+    .info .col-7, .info .col-5 {
+        padding: 0;
+    }
+
+    #heading {
+        color: #777;
+        line-height: 1.8;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .pricing {
+        background-color: #f8f9fa;
+        padding: 2vh 8%;
+        font-weight: 400;
+        line-height: 2.5;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+    }
+
+    .pricing .row {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    .pricing .col-9, .pricing .col-3 {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    #name {
+        color: #444;
+        font-weight: 500;
+    }
+
+    #price {
+        color: #222;
+        font-weight: 500;
+        text-align: right;
+        justify-content: flex-end;
+    }
+
+    .total {
+        padding: 2vh 8%;
+        color: rgb(252, 103, 49);
+        font-weight: bold;
+        background-color: rgba(252, 103, 49, 0.05);
+    }
+
+    .total .row {
+        margin: 0;
+    }
+
+    .total .col-9, .total .col-3 {
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .total big {
+        font-size: 1.2rem;
+        justify-content: flex-end;
+    }
+
+    .tracking .title {
+        margin-top: 3vh;
+    }
+
+    #progressbar {
+        margin-bottom: 3vh;
+        overflow: hidden;
+        color: rgb(252, 103, 49);
+        padding-left: 0;
+        margin-top: 3vh;
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    #progressbar li {
+        list-style-type: none;
+        font-size: 0.7rem;
+        width: 25%;
+        position: relative;
+        font-weight: 500;
+        color: #a0a0a0;
+        text-align: center;
+        z-index: 2;
+    }
+
+    #progressbar li:before {
+        content: "";
+        width: 20px;
+        height: 20px;
+        display: block;
+        font-size: 12px;
+        background: #ddd;
+        border-radius: 50%;
+        margin: 0 auto 1vh;
+        line-height: 20px;
+        text-align: center;
+        z-index: 2;
+        position: relative;
+    }
+
+    #progressbar li:after {
+        content: '';
+        height: 3px;
+        background: #ddd;
+        position: absolute;
+        left: -50%;
+        right: 50%;
+        top: 10px;
+        z-index: 1;
+    }
+
+    #progressbar li:first-child:after {
+        content: none;
+    }
+
+    #progressbar li.active {
+        color: rgb(252, 103, 49);
+    }
+
+    #progressbar li.active:before {
+        background: rgb(252, 103, 49);
+        color: white;
+        content: "✓";
+        font-size: 0.6rem;
+    }
+
+    #progressbar li.active:after {
+        background: rgb(252, 103, 49);
+    }
+
+    .footer {
+        padding: 0 8%;
+        font-size: 0.7rem;
+        color: #666;
+        margin-top: 3vh;
+        border-top: 1px solid #eee;
+        padding-top: 2vh;
+    }
+
+    .footer img {
+        height: 5vh;
+        opacity: 0.2;
+        transition: opacity 0.3s;
+    }
+
+    .footer img:hover {
+        opacity: 0.5;
+    }
+
+    .footer a {
+        color: rgb(252, 103, 49);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer a:hover {
+        color: #e04b00;
+        text-decoration: underline;
+    }
+
+    .footer .col-10, .footer .col-2 {
+        display: flex;
+        padding: 3vh 0 0;
+        align-items: center;
+    }
+
+    .footer .row {
+        margin: 0;
+    }
+
+    .progress-track {
+        padding: 0 8%;
+    }
+
+    /* Animation for progress steps */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    #progressbar li.active:before {
+        animation: pulse 0.5s ease-in-out;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 576px) {
+        #progressbar li {
+            font-size: 0.6rem;
+        }
+        
+        #progressbar li:before {
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+        }
+        
+        #progressbar li:after {
+            top: 7px;
+        }
+    }
+</style>
+
+{% endblock css %}
+
+
+
+
+{% for o in ord %}
+<div class="order">
+        <div class="card">
+            <div class="title">Purchase Reciept</div>
+            <div class="info">
+                <div class="row">
+                    <div class="col-7">
+                        <span id="heading">Date</span><br>
+                        <span id="details">10 October 2018</span>
+                    </div>
+                    <div class="col-5 pull-right">
+                        <span id="heading">Order No.</span><br>
+                        <span id="details">012j1gvs356c</span>
+                    </div>
+                </div>      
+            </div>      
+            <div class="pricing">
+                <div class="row">
+                    <div class="col-9">
+                        <span id="name">{{o.product.name}}</span>  
+                    </div>
+                    <div class="col-3">
+                        <span id="price">₹ {{o.product.discounted_price}}</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-9">
+                        <span id="name">Shipping</span>
+                    </div>
+                    <div class="col-3">
+                        <span id="price">₹ 2000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="total">
+                <div class="row">
+                    <div class="col-9"></div>
+                    <div class="col-3"><big>{{o.product.discounted_price|add:2000}}</big></div>
+                </div>
+            </div>
+            <div class="tracking">
+                <div class="title">Tracking Order</div>
+            </div>
+
+            {% if o.status == 'PENDING' %}
+            <div class="progress-track ml-5">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">Pending</li>
+                    <li class="step0  text-center" id="step2">Processing</li>
+                    <li class="step0  text-right" id="step3">Completed</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if o.status == 'PROCESSING' %}
+            <div class="progress-track ml-5">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">Pending</li>
+                    <li class="step0 active text-center" id="step2">Processing</li>
+                    <li class="step0  text-right" id="step3">Completed</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            {% if o.status == 'COMPLETED' %}
+            <div class="progress-track ml-5">
+                <ul id="progressbar">
+                    <li class="step0 active " id="step1">Pending</li>
+                    <li class="step0 active text-center" id="step2">Processing</li>
+                    <li class="step0 active text-right" id="step3">Completed</li>
+                </ul>
+            </div>
+            {% endif %}
+
+            
+            
+            
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock content %}

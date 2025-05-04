@@ -1,0 +1,36 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+<!--================================= Payment Start Here ==============================================-->
+<br><br><br><br>    
+
+<style>
+    .payment-section {
+        margin: 40px auto;
+        max-width: 600px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .payment-section h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .paypal-button-container {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="payment-section">
+    <h2>Complete Your Payment</h2>
+    <div class="paypal-button-container">
+        {{ paypal.render }}
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% for dc in dc %}
+        <div class="col-md-4 mb-4">
+            <a href="{% url "ProductDetails" id=dc.id %}">
+                <div class="card card-1">
+                    <img src="{{ dc.E_com_image.url }}" class="card-img-top" alt="{{ dc.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ dc.name }}</h5>
+                        <h5 class="font-weight-bold text-dark"><i class="fa-solid fa-indian-rupee-sign"></i>{{ dc.original_price }} <small class="fw-light rupee">{{ dc.discounted_price }}</small></h5>
+                        <a href="{% url "ProductDetails" id=dc.id %}" class="click">View</a>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

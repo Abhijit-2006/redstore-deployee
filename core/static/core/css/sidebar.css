@@ -1,0 +1,63 @@
+/* Sidebar base styles */
+.nav.flex-column {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 260px;
+}
+
+/* Each nav item */
+.nav-item {
+    margin-bottom: 15px;
+}
+
+/* Nav links */
+.nav-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+/* SVG icons */
+.nav-link svg {
+    margin-right: 10px;
+    stroke: currentColor;
+    transition: transform 0.4s ease, stroke 0.3s ease;
+}
+
+/* Hover effects */
+.nav-link:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.nav-link:hover svg {
+    stroke: #fff;
+    transform: scale(1.15);
+}
+
+/* Glowing underline on hover */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 14px;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 70%;
+}

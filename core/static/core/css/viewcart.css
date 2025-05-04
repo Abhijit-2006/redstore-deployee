@@ -1,0 +1,153 @@
+/* General Page Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Profile Page Container */
+.container-fluid.profile {
+    padding: 20px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #343a40;
+    height: 100vh;
+    padding-top: 20px;
+}
+
+.sidebar .nav-link {
+    color: #ffffff;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.sidebar .nav-link svg {
+    margin-right: 10px;
+}
+
+.sidebar .nav-link:hover {
+    background-color: #495057;
+    border-radius: 5px;
+}
+
+.sidebar .nav-link.active {
+    background-color: #007bff;
+    border-radius: 5px;
+}
+
+/* Main Content */
+h3.text-primary {
+    font-weight: bold;
+}
+
+/* Shopping Cart Styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Product Image */
+.card img {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Product Details */
+.lead {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Quantity Controls */
+.btn-link {
+    border: none;
+    background: none;
+    font-size: 18px;
+    color: #007bff;
+    transition: 0.3s;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+}
+
+/* Price */
+h5.mb-0 {
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Remove Item Icon */
+.text-danger {
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.text-danger:hover {
+    color: red;
+}
+
+/* Checkout Button */
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .container-fluid.profile {
+        padding: 10px;
+    }
+
+    .card img {
+        width: 60px;
+    }
+
+    .lead {
+        font-size: 16px;
+    }
+
+    .btn-success {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
